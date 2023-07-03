@@ -25,22 +25,22 @@
         {
             if (document == null) throw new ArgumentNullException(nameof(document));
 
-            var tuples = new List<TupleGroup>();
+            var tupleGroups = new List<TupleGroup>();
 
             // Add tuple from root document
-            var tuple = new TupleGroup
+            var group = new TupleGroup
             {
                 Name = document.DocumentName.ToLower(),
-                TupleColumnValues = CreateTupleColumnValues(document.Attributes)
             };
-            tuples.Add(tuple);
+            group.Tuples.Add(new Tuple(CreateTupleColumnValues(document.Attributes)));
+            tupleGroups.Add(group);
 
-            // Add tuples from sub documents
-            var tupleFromSubDocuments = CreateTupleGroupsFromSubDocuments(tuple.Name, document.Attributes);
-            if (tupleFromSubDocuments.Any())
-                tuples.AddRange(tupleFromSubDocuments);
+            // Add group tuples from sub documents
+            var groups = CreateGroupsFromSubDocuments(group.Name, document.Attributes);
+            if (groups.Any())
+                tupleGroups.AddRange(groups);
 
-            return tuples;
+            return tupleGroups;
         }
 
         private static IList<TupleColumnValue> CreateTupleColumnValues(IList<DocumentAttribute> attributes)
@@ -64,27 +64,41 @@
             return tuples.Select(t => t.Value).ToList();
         }
 
-        private static IList<TupleGroup> CreateTupleGroupsFromSubDocuments(string tupleGroupName, IList<DocumentAttribute> attributes)
+        private static IList<TupleGroup> CreateGroupsFromSubDocuments(string groupName, IList<DocumentAttribute> attributes)
         {
-            var tables = new List<TupleGroup>();
+            var groups = new List<TupleGroup>();
             foreach (var attr in attributes.Where(att => !att.IsPrimitive).ToList())
             {
                 if (attr == null || attr.Attributes == null || attr.Attributes.Count == 0) continue;
 
-                var namedTuple = new TupleGroup
+                var tuple = new Tuple(CreateTupleColumnValues(attr.Attributes));             
+               
+                var group = new TupleGroup
                 {
-                    Name = $"{tupleGroupName}_{attr.Name.ToLower()}",
-                };
-                namedTuple.TupleColumnValues = CreateTupleColumnValues(attr.Attributes);
-                tables.Add(namedTuple);
+                    Name = $"{groupName}_{attr.Name.ToLower()}",
+                    Tuples = new List<Tuple> { tuple }
+                };      
+                groups.Add(group);
 
                 if (attr.Attributes.Any(x => !x.IsPrimitive))
                 {
-                    var namedTuplesFromSubDocuments = CreateTupleGroupsFromSubDocuments(namedTuple.Name, attr.Attributes);
-                    tables.AddRange(namedTuplesFromSubDocuments);
+                    var groupFromSubDocuments = CreateGroupsFromSubDocuments(group.Name, attr.Attributes);
+                    groups.AddRange(groupFromSubDocuments);
+                }
+
+                if (attr.SubDocuments.Any())
+                {
+                    group.Tuples.Remove(tuple);
+                    foreach (var subDocument in attr.SubDocuments)
+                    {
+                        if (subDocument.Attributes.Any(x => x.IsPrimitive))
+                        {
+                            group.Tuples.Add(new Tuple(CreateTupleColumnValues(subDocument.Attributes)));
+                        }
+                    }
                 }
             }
-            return tables;
+            return groups;
         }
     }
 }

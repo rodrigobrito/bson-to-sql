@@ -41,10 +41,10 @@ namespace BsonToMySQL
             {
                 var docAttr = new DocumentAttribute
                 {
-                    Name = NormalizeColumnName(element.Name), 
+                    Name = NormalizeColumnName(element.Name),
                     Document = targetDocument
                 };
-             
+
                 var attributeValue = element.Value;
                 if (attributeValue == null) continue;
 
@@ -71,18 +71,18 @@ namespace BsonToMySQL
                         docAttr.Type = "DECIMAL(10, 2)";
                         break;
                     case BsonType.Document:
-                        docAttr.Document = CreateDocumentAttribute(targetDocument, targetDocumentName, attributeValue);
+                        docAttr.Document = CreateDocumentAttribute(targetDocumentName, docAttr, attributeValue);
                         docAttr.Type = "DOCUMENT_ATTRIBUTE";
                         break;
                     case BsonType.Array:
-                        docAttr.Document = CreateDocumentArray(targetDocument,  targetDocumentName, docAttr, attributeValue); ;
+                        docAttr.Document = CreateDocumentArray(targetDocumentName, docAttr, attributeValue); ;
                         docAttr.Type = "DOCUMENT_ARRAY";
                         break;
                     case BsonType.Boolean:
                         docAttr.Value = attributeValue.AsBoolean.ToString();
                         docAttr.Type = "TINYINT";
                         break;
-                    case BsonType.DateTime:                    
+                    case BsonType.DateTime:
                         docAttr.Value = attributeValue.ToUniversalTime().ToString("u").Replace(" ", "T"); ;
                         docAttr.Type = "VARCHAR";
                         break;
@@ -91,43 +91,45 @@ namespace BsonToMySQL
                     default:
                         docAttr.Value = attributeValue.AsString;
                         break;
-                }         
+                }
 
                 targetDocument.Attributes.Add(docAttr);
             }
         }
 
-        private static Document CreateDocumentArray(Document targetDocument, string targetDocumentName, DocumentAttribute docAttribute, BsonValue attributeValue)
+        private static Document CreateDocumentArray(string targetDocumentName, DocumentAttribute docAttribute, BsonValue attributeValue)
         {
             var arrayDocument = new Document
             {
-                DocumentName = targetDocumentName,
+                DocumentName = targetDocumentName,                
             };
             var array = attributeValue.AsBsonArray;
             foreach (var bsonValue in array)
             {
                 var bsonDocument = bsonValue.AsBsonDocument;
-                var table = new Document
+                var document = new Document
                 {
                     DocumentName = arrayDocument.DocumentName,
                 };
-                BuildAttributes(bsonDocument, table, targetDocument);
-                docAttribute.Attributes = new List<DocumentAttribute>(table.Attributes);
+                BuildAttributes(bsonDocument, document, arrayDocument);
+                docAttribute.Attributes = new List<DocumentAttribute>(document.Attributes);
+                docAttribute.SubDocuments.Add(document);
             }
             return arrayDocument;
         }
 
-        private static Document CreateDocumentAttribute(Document targetDocument, string targetDocumentName, BsonValue attributeValue)
+        private static Document CreateDocumentAttribute(string targetDocumentName, DocumentAttribute docAttribute, BsonValue attributeValue)
         {
-            var model = new Document
+            var document = new Document
             {
                 DocumentName = targetDocumentName,
             };
-            BuildAttributes(attributeValue.AsBsonDocument, model, targetDocument);
-            return model;
+            BuildAttributes(attributeValue.AsBsonDocument, document, document);
+            docAttribute.Attributes = document.Attributes;
+            return document;
         }
 
-        private static Dictionary<string, int> GetMaxSizeOfDocumentAttributes(List<Document> records) 
+        private static Dictionary<string, int> GetMaxSizeOfDocumentAttributes(List<Document> records)
         {
             var dict = new Dictionary<string, int>();
             foreach (var rec in records)
@@ -138,7 +140,7 @@ namespace BsonToMySQL
         private static void FillMaxSizeOfDocumentAttributes(IList<DocumentAttribute> attributes, Dictionary<string, int> dict)
         {
             foreach (var attr in attributes)
-            {                
+            {
                 if (attr == null || attr.Document == null) continue;
 
                 var name = $"{attr.Document.DocumentName}____{attr.Name}";
@@ -161,6 +163,12 @@ namespace BsonToMySQL
 
                 if (attr != null && !attr.IsPrimitive && attr?.Attributes == null && attr?.Document.Attributes.Count > 0)
                     FillMaxSizeOfDocumentAttributes(attr.Document.Attributes, dict);
+
+                if (attr != null && attr.SubDocuments.Any())
+                {
+                    foreach (var document in attr.SubDocuments)
+                        FillMaxSizeOfDocumentAttributes(document.Attributes, dict);
+                }
             }
         }
 
@@ -183,6 +191,12 @@ namespace BsonToMySQL
 
                 if (!attr.IsPrimitive && attr?.Attributes == null && attr?.Document.Attributes.Count > 0)
                     SetAttributeTypeAndSize(dict, attr.Document.Attributes);
+
+                if (attr != null && attr.SubDocuments.Any())
+                {
+                    foreach (var document in attr.SubDocuments)
+                        SetAttributeTypeAndSize(dict, document.Attributes);
+                }
             }
         }
 

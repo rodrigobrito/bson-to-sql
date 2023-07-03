@@ -14,32 +14,41 @@ namespace BsonToMySQL
 
         public static string CreateDML(IList<TupleGroup> tupleGroups)
         {
-            return CreateInsertDMLCommand(tupleGroups);
+            var sb = new StringBuilder();
+            foreach (var group in tupleGroups)
+            {
+                var insertCommand = CreateInsertScript(group.Name, group.Tuples);
+                sb.AppendLine(insertCommand);
+            }
+            return sb.ToString();
         }
 
-        private static Dictionary<string, Dictionary<string, string>> ExtractTablesAndColumns(IList<TupleGroup> tuplesGroups)
+        private static Dictionary<string, Dictionary<string, string>> ExtractTablesAndColumns(IList<TupleGroup> groups)
         {
             var dict = new Dictionary<string, Dictionary<string, string>>();
-            foreach (var tupleGroup in tuplesGroups)
+            foreach (var group in groups)
             {
-                if (dict.TryGetValue(tupleGroup.Name, out Dictionary<string, string>? columns))
+                foreach (var tuple in group.Tuples)
                 {
-                    foreach (var tuple in tupleGroup.TupleColumnValues)
+                    if (dict.TryGetValue(group.Name, out Dictionary<string, string>? columns))
                     {
-                        if (!columns.TryGetValue(tuple.Name, out string? colType))
+                        foreach (var column in tuple.ColumnValues)
                         {
-                            columns.Add(tuple.Name, tuple.Type);
+                            if (!columns.TryGetValue(column.Name, out string? colType))
+                            {
+                                columns.Add(column.Name, column.Type);
+                            }
                         }
                     }
-                }
-                else
-                {
-                    var cols = new Dictionary<string, string>();
-                    foreach (var tuple in tupleGroup.TupleColumnValues)
+                    else
                     {
-                        cols.Add(tuple.Name, tuple.Type);
+                        var cols = new Dictionary<string, string>();
+                        foreach (var column in tuple.ColumnValues)
+                        {
+                            cols.Add(column.Name, column.Type);
+                        }
+                        dict.Add(group.Name, cols);
                     }
-                    dict.Add(tupleGroup.Name, cols);
                 }
             }
             return dict;
@@ -77,15 +86,15 @@ namespace BsonToMySQL
             return sbColumns;
         }
 
-        private static string CreateInsertDMLCommand(IList<TupleGroup> tupleGroups)
+        private static string CreateInsertScript(string name, IList<Tuple> tupleGroups)
         {
             var sb = new StringBuilder();
             foreach (var tuple in tupleGroups)
             {
-                sb.Append($"INSERT INTO {tuple.Name} (");
+                sb.Append($"INSERT INTO {name} (");
                 bool columAlreadyAdded = false;
                 var comma = string.Empty;
-                foreach (var column in tuple.TupleColumnValues)
+                foreach (var column in tuple.ColumnValues)
                 {
                     if (columAlreadyAdded) comma = ", ";
                     sb.Append($"{comma}{column.Name.ToLower()}");
@@ -96,7 +105,7 @@ namespace BsonToMySQL
                 sb.Append('(');
                 comma = " ";
                 columAlreadyAdded = false;
-                foreach (var column in tuple.TupleColumnValues)
+                foreach (var column in tuple.ColumnValues)
                 {
                     if (columAlreadyAdded) comma = ",";
 
