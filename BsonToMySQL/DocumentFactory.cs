@@ -28,14 +28,9 @@ namespace BsonToMySQL
             return records;
         }
 
-        private static void BuildAttributes(BsonDocument document, Document targetDocument, Document? parentDocument = null)
+        private static void BuildAttributes(BsonDocument document, Document targetDocument)
         {
-            if (parentDocument != null)
-            {
-                var relatedDocumentsId = parentDocument.Attributes.FirstOrDefault(attr => attr.Name == "_id");
-                if (relatedDocumentsId != null)
-                    targetDocument.Attributes.Insert(0, relatedDocumentsId);
-            }
+            if (targetDocument == null) return;
 
             foreach (var element in document)
             {
@@ -71,11 +66,11 @@ namespace BsonToMySQL
                         docAttr.Type = "DECIMAL(10, 2)";
                         break;
                     case BsonType.Document:
-                        docAttr.Document = CreateDocumentAttribute(targetDocumentName, docAttr, attributeValue);
+                        docAttr.Document = CreateDocumentAttribute(targetDocumentName, docAttr, attributeValue, targetDocument.Attributes.First(attr => attr.Name == "_id"));
                         docAttr.Type = "DOCUMENT_ATTRIBUTE";
                         break;
                     case BsonType.Array:
-                        docAttr.Document = CreateDocumentArray(targetDocumentName, docAttr, attributeValue); ;
+                        docAttr.Document = CreateDocumentArray(targetDocumentName, docAttr, attributeValue, targetDocument.Attributes.First(attr => attr.Name == "_id")); ;
                         docAttr.Type = "DOCUMENT_ARRAY";
                         break;
                     case BsonType.Boolean:
@@ -97,11 +92,11 @@ namespace BsonToMySQL
             }
         }
 
-        private static Document CreateDocumentArray(string targetDocumentName, DocumentAttribute docAttribute, BsonValue attributeValue)
+        private static Document CreateDocumentArray(string targetDocumentName, DocumentAttribute docAttribute, BsonValue attributeValue, DocumentAttribute id)
         {
             var arrayDocument = new Document
             {
-                DocumentName = targetDocumentName,                
+                DocumentName = targetDocumentName,
             };
             var array = attributeValue.AsBsonArray;
             foreach (var bsonValue in array)
@@ -111,20 +106,22 @@ namespace BsonToMySQL
                 {
                     DocumentName = arrayDocument.DocumentName,
                 };
-                BuildAttributes(bsonDocument, document, arrayDocument);
-                docAttribute.Attributes = new List<DocumentAttribute>(document.Attributes);
+                document.Attributes.Add(id);
+                BuildAttributes(bsonDocument, document);
+                docAttribute.Attributes = document.Attributes;
                 docAttribute.SubDocuments.Add(document);
             }
             return arrayDocument;
         }
 
-        private static Document CreateDocumentAttribute(string targetDocumentName, DocumentAttribute docAttribute, BsonValue attributeValue)
+        private static Document CreateDocumentAttribute(string targetDocumentName, DocumentAttribute docAttribute, BsonValue attributeValue, DocumentAttribute id)
         {
             var document = new Document
             {
                 DocumentName = targetDocumentName,
             };
-            BuildAttributes(attributeValue.AsBsonDocument, document, document);
+            document.Attributes.Add(id);
+            BuildAttributes(attributeValue.AsBsonDocument, document);
             docAttribute.Attributes = document.Attributes;
             return document;
         }
