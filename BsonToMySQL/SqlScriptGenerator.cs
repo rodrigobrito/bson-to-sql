@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography;
+using System.Text;
 
 namespace BsonToMySQL
 {
@@ -56,6 +57,7 @@ namespace BsonToMySQL
 
         private static string CreateTable(IList<TupleGroup> tuplesGroups)
         {
+            var sha1 = SHA1.Create();            
             var sbTable = new StringBuilder();
             var tablesAndColumnsDict = ExtractTablesAndColumns(tuplesGroups);
             foreach (var table in tablesAndColumnsDict)
@@ -64,6 +66,7 @@ namespace BsonToMySQL
                 var sbColumns = CreateColumns(table.Value);
                 sbTable.Append(sbColumns);
                 sbTable.AppendLine(");");
+                sbTable.AppendLine($"ALTER TABLE {table.Key} ADD INDEX idx_{SecurityUtils.GetHash(sha1, table.Key)}_id(_id); ");
                 sbTable.AppendLine();
             }
             return sbTable.ToString();
