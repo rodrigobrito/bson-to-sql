@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BsonToMySQL", "BsonToMySQL\BsonToMySQL.csproj", "{2616D813-B4E7-4DD6-8F2F-2B89873A6769}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BsonToMySQL", "src\BsonToMySQL.csproj", "{2616D813-B4E7-4DD6-8F2F-2B89873A6769}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 {
     public class Program
     {
-        public const string ExpectedArgumentMessage = "Invalid argument, expected -f filename -t tableNamePrefix parameters.";
+        public const string ExpectedArgumentMessage = "Invalid argument, expected: -f filename -t tableNamePrefix";
         static void Main(string[] args)
         {           
             if (args.Length != 4 ||

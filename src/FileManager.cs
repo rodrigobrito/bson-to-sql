@@ -10,7 +10,6 @@ namespace BsonToMySQL
             if (!File.Exists(fileName))
             {
                 Console.WriteLine($"File {fileName} not found!");
-                Console.ReadLine();
                 return;
             }
 
@@ -19,7 +18,6 @@ namespace BsonToMySQL
             if (array == null)
             {
                 Console.WriteLine($"No data found in file!");
-                Console.ReadLine();
                 return;
             }
 
@@ -45,8 +43,6 @@ namespace BsonToMySQL
             Console.WriteLine($"Saving SQL scripts to {path}.");
             File.WriteAllText(path, sql);      
             Console.WriteLine($"SQL file created on {path}.");
-            Console.WriteLine($"Press any key to finish!");
-            Console.ReadLine();
         }
 
         private static BsonArray? ToBsonArray(string fileName)
