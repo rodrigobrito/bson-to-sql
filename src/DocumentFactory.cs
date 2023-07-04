@@ -198,6 +198,13 @@ namespace BsonToMySQL
             }
         }
 
-        private static string NormalizeColumnName(string columnName) => columnName.Replace("group", "_group"); // TODO - Improve reserved key words to avoid problems in SQL column names
+        private static string NormalizeColumnName(string columnName) 
+            => columnName.Replace("group", "_group")
+                         .Replace("key","_key")
+                         .Replace("asc", "_asc")
+                         .Replace("default", "_default")
+                         .Replace("select", "_select")
+                         .Replace("null", "_null")
+                         .Replace("alter", "_alter"); // TODO - Improve reserved key words to avoid problems in SQL column names
     }
 }

@@ -3,13 +3,17 @@ Transforms MongoDB documents into SQL scripts, "normalizing" the document to SQL
 
 ## how to run the utility
 
+
+
 Linux:
 ```bash
 $ wget https://github.com/rodrigobrito/bson-to-sql/releases/download/v1.0.0/BsonToMySQL-linux-x64.tar.gz
 $ tar -xzvf BsonToMySQL-linux-x64.tar.gz
-$ chmod +X BsonToMySQL
-$  ./BsonToMySQL -f your-bson-filename -t prefixTablesName
+$ chmod 744 BsonToMySQL
+$ ./BsonToMySQL -f ./your-bson-filename -t prefixTablesName
 ```
+
+
 
 ## how to build
 Build to Linux:
