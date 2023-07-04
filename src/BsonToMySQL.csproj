@@ -7,6 +7,9 @@
     <Nullable>enable</Nullable>
     <Description>BsonToMySQL</Description>
     <Copyright>BritoLabs</Copyright>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
   </PropertyGroup>
 
   <ItemGroup>
