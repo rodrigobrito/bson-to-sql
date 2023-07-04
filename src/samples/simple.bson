@@ -1,0 +1,388 @@
+{
+    "_id" : ObjectId("623232af986a0200435765aa"),
+    "isActive" : true,
+    "canonical" : "/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-48-it-42-br-preto",
+    "skuId" : NumberInt(1),
+    "productId" : NumberInt(1),
+    "name" : "PRETO-48",
+    "sku" : "100000289720UC9948",
+    "height" : NumberInt(5),
+    "length" : NumberInt(30),
+    "width" : NumberInt(20),
+    "weight" : NumberInt(360),
+    "measurementUnit" : "UN",
+    "attributes" : [
+        {
+            "attributeId" : NumberInt(4),
+            "attributeValue" : "48",
+            "attributeContent" : "54 EUROPA - 48 BRASIL",
+            "attributeValueId" : NumberInt(40),
+            "name" : "Tamanho"
+        },
+        {
+            "attributeId" : NumberInt(3),
+            "attributeValue" : "Preto",
+            "attributeContent" : "foto",
+            "attributeValueId" : NumberInt(11),
+            "name" : "Cor"
+        },
+        {
+            "attributeId" : NumberInt(65),
+            "attributeValue" : "Preto",
+            "attributeContent" : "",
+            "attributeValueId" : NumberInt(409),
+            "name" : "Cores"
+        },
+        {
+            "attributeId" : NumberInt(1026),
+            "attributeValue" : "UC99",
+            "attributeContent" : "",
+            "attributeValueId" : NumberInt(15339),
+            "name" : "Código Cor"
+        }
+    ],
+    "storeId" : ObjectId("61f92d9dde31fd001143bc16"),
+    "storeCode" : "Grupo sample-account",
+    "integrations" : [
+          1,
+          2
+    ],
+    "history" : [
+          "history1",
+          "history2",
+    ],
+    "createdAt" : ISODate("2022-03-16T18:55:43.476+0000"),
+    "updatedAt" : ISODate("2023-06-05T20:37:23.724+0000"),
+    "__v" : NumberInt(0),
+    "codes" : [
+        {
+            "type" : "ean",
+            "value" : "8050941971213"
+        }
+    ],
+    "components" : [
+
+    ],
+    "keyWords" : "Camise,Camiset,camiseta,CAMISETA,Camiseta,camiseta com,Camiseta com,Camisetas,camisetas,camisa,100000289720UC9948",
+    "metaTagDescription" : "De símbolo do casual, a t-shirt passa a ser uma peça exclusiva e refinada. Confeccionado em malha macia de algodão, este modelo é decorado com o endereço exclusivo da casa Giorgio sample.",
+    "brandId" : NumberInt(1),
+    "categoryId" : NumberInt(36),
+    "kit" : false,
+    "medias" : [
+        {
+            "sortOrder" : NumberInt(0),
+            "fileId" : "1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b",
+            "text" : "100000289720UC9948-CAMISETA_1.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-de-algodao-48-preto?id=1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(1),
+            "fileId" : "2960437f-fc4c-4d06-81ed-5934a676dffd",
+            "text" : "100000289720UC9948-CAMISETA_1.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-48-it-42-br-preto?id=2960437f-fc4c-4d06-81ed-5934a676dffd",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(2),
+            "fileId" : "740b68f2-2729-43cc-9738-be44c3e7445d",
+            "text" : "100000289720UC9948-CAMISETA_2.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-48-it-42-br-preto?id=740b68f2-2729-43cc-9738-be44c3e7445d",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(3),
+            "fileId" : "a277556a-498c-4c08-a353-95fc20b211d3",
+            "text" : "100000289720UC9948-CAMISETA_3.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-48-it-42-br-preto?id=a277556a-498c-4c08-a353-95fc20b211d3",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(4),
+            "fileId" : "7612a6d9-6c5b-48f3-ade2-d84ee3ec124b",
+            "text" : "100000289720UC9948-CAMISETA_4.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-48-it-42-br-preto?id=7612a6d9-6c5b-48f3-ade2-d84ee3ec124b",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(5),
+            "fileId" : "47ea0612-6484-49db-bada-01e5321d5bb1",
+            "text" : "100000289720UC9948-CAMISETA_5.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-48-it-42-br-preto?id=47ea0612-6484-49db-bada-01e5321d5bb1",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(6),
+            "fileId" : "88e08375-aedb-4251-994e-e526991a9eda",
+            "text" : "100000289720UC9948-CAMISETA_6.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-48-it-42-br-preto?id=88e08375-aedb-4251-994e-e526991a9eda",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        }
+    ],
+    "contentMedia" : "yes",
+    "activationDate" : null,
+    "inactivationDate" : null,
+    "giftPackaging" : false
+},
+{
+    "_id" : ObjectId("623232af986a0200435765ab"),
+    "isActive" : true,
+    "canonical" : "/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-50-it-44-br-preto",
+    "skuId" : NumberInt(2),
+    "productId" : NumberInt(1),
+    "name" : "PRETO-50",
+    "sku" : "100000289721UC9950",
+    "height" : NumberInt(5),
+    "length" : NumberInt(30),
+    "width" : NumberInt(20),
+    "weight" : NumberInt(360),
+    "measurementUnit" : "UN",
+    "attributes" : [
+        {
+            "attributeId" : NumberInt(4),
+            "attributeValue" : "50",
+            "attributeContent" : "56 EUROPA - 50 BRASIL",
+            "attributeValueId" : NumberInt(41),
+            "name" : "Tamanho"
+        },
+        {
+            "attributeId" : NumberInt(3),
+            "attributeValue" : "Preto",
+            "attributeContent" : "foto",
+            "attributeValueId" : NumberInt(11),
+            "name" : "Cor"
+        },
+        {
+            "attributeId" : NumberInt(65),
+            "attributeValue" : "Preto",
+            "attributeContent" : "",
+            "attributeValueId" : NumberInt(409),
+            "name" : "Cores"
+        },
+        {
+            "attributeId" : NumberInt(1026),
+            "attributeValue" : "UC99",
+            "attributeContent" : "",
+            "attributeValueId" : NumberInt(15339),
+            "name" : "Código Cor"
+        }
+    ],
+    "storeId" : ObjectId("61f92d9dde31fd001143bc16"),
+    "storeCode" : "Grupo sample-account",
+    "integrations" : [
+
+    ],
+    "history" : [
+
+    ],
+    "createdAt" : ISODate("2022-03-16T18:55:43.616+0000"),
+    "updatedAt" : ISODate("2023-06-05T20:37:24.405+0000"),
+    "__v" : NumberInt(0),
+    "codes" : [
+        {
+            "type" : "ean",
+            "value" : "8050941971220"
+        }
+    ],
+    "components" : [
+
+    ],
+    "keyWords" : "camiseta,camisa,t-shirt,,100000289721UC9950",
+    "metaTagDescription" : "Camiseta de Algodão",
+    "brandId" : NumberInt(1),
+    "categoryId" : NumberInt(36),
+    "kit" : false,
+    "medias" : [
+        {
+            "sortOrder" : NumberInt(0),
+            "fileId" : "1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b",
+            "text" : "100000289720UC9948-CAMISETA_1.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-de-algodao-48-preto?id=1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(1),
+            "fileId" : "8f2de04d-17ff-4298-bd06-20c4cfd81a2f",
+            "text" : "100000289720UC9948-CAMISETA_1.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-50-it-44-br-preto?id=8f2de04d-17ff-4298-bd06-20c4cfd81a2f",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(2),
+            "fileId" : "81af9e17-d993-4256-bae6-709b3d8f403e",
+            "text" : "100000289720UC9948-CAMISETA_2.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-50-it-44-br-preto?id=81af9e17-d993-4256-bae6-709b3d8f403e",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(3),
+            "fileId" : "b4078432-8d87-4f4b-9828-3244dd1756fe",
+            "text" : "100000289720UC9948-CAMISETA_3.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-50-it-44-br-preto?id=b4078432-8d87-4f4b-9828-3244dd1756fe",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(4),
+            "fileId" : "5c195ff4-a0ec-44e1-b74a-4e8ebc5ad0eb",
+            "text" : "100000289720UC9948-CAMISETA_4.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-50-it-44-br-preto?id=5c195ff4-a0ec-44e1-b74a-4e8ebc5ad0eb",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(5),
+            "fileId" : "260d67ba-f313-4438-98fb-bc5582f8520c",
+            "text" : "100000289720UC9948-CAMISETA_5.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-50-it-44-br-preto?id=260d67ba-f313-4438-98fb-bc5582f8520c",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        },
+        {
+            "sortOrder" : NumberInt(6),
+            "fileId" : "719f162c-9aac-44eb-bc03-ab009c05a528",
+            "text" : "100000289720UC9948-CAMISETA_6.JPG",
+            "mediaType" : "photo",
+            "name" : "CAMISETA",
+            "label" : "CAMISETA",
+            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-11-de-algodao-50-it-44-br-preto?id=719f162c-9aac-44eb-bc03-ab009c05a528",
+            "extensionAttributes" : {
+
+            },
+            "metadata" : {
+                "contentType" : "image/jpeg",
+                "height" : NumberInt(2702),
+                "width" : NumberInt(1920)
+            }
+        }
+    ],
+    "contentMedia" : "yes",
+    "giftPackaging" : false
+}

@@ -1,7 +1,9 @@
 {
   "profiles": {
     "BsonToMySQL": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "-f .\\samples\\simple.bson -t simple",
+      "remoteDebugEnabled": false
     }
   }
 }

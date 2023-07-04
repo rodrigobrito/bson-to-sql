@@ -16,4 +16,10 @@
     <PackageReference Include="MongoDB.Bson" Version="2.20.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="samples\simple.bson">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

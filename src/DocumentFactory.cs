@@ -83,8 +83,12 @@ namespace BsonToMySQL
                         break;
                     case BsonType.Null:
                         break;
-                    default:
+                    case BsonType.String:
                         docAttr.Value = attributeValue.AsString;
+                        break;
+                    default:
+                        var val = attributeValue.ToString();
+                        docAttr.Value = string.IsNullOrWhiteSpace(val) ? string.Empty : val;
                         break;
                 }
 
@@ -101,12 +105,9 @@ namespace BsonToMySQL
             var array = attributeValue.AsBsonArray;
             foreach (var bsonValue in array)
             {
-                var bsonDocument = bsonValue.AsBsonDocument;
-                var document = new Document
-                {
-                    DocumentName = arrayDocument.DocumentName,
-                };
-                document.Attributes.Add(id);
+                var document = new Document { DocumentName = arrayDocument.DocumentName };
+                document.Attributes.Add(id);               
+                var bsonDocument = bsonValue.IsBsonDocument ? bsonValue.AsBsonDocument : new BsonDocument(new BsonElement(targetDocumentName, bsonValue));
                 BuildAttributes(bsonDocument, document);
                 docAttribute.Attributes = document.Attributes;
                 docAttribute.SubDocuments.Add(document);
