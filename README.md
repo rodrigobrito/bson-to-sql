@@ -13,7 +13,7 @@ $ ./BsonToMySQL -f ./your-bson-file -t prefixTablesName
 
 OSX arm64:
 ```bash
-$ wget https://github.com/rodrigobrito/bson-to-sql/releases/download/v1.0.0/BsonToMySQL-osx-arm64.tgz
+$ curl -L https://github.com/rodrigobrito/bson-to-sql/releases/download/v1.0.0/BsonToMySQL-osx-arm64.tgz -o BsonToMySQL-osx-arm64.tgz
 $ tar -xvf BsonToMySQL-osx-arm64.tgz
 $ ./BsonToMySQL -f ./your-bson-file -t prefixTablesName
 ```
@@ -281,7 +281,7 @@ $ dotnet publish -c Release -r linux-x64 -p:PublishSingleFile=true --self-contai
 
 Build to MacOS Apple silicon:
 ```bash
-dotnet publish  -c Release -r osx-arm64 -p:PublishSingleFile=true -o arm64 --self-contained true
+dotnet publish  -c Release -r osx-arm64 -p:PublishSingleFile=true -o arm64 --self-containedÂ true
 ```
 
 Build to Windows:
