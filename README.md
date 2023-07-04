@@ -8,21 +8,21 @@ Linux x64:
 $ wget https://github.com/rodrigobrito/bson-to-sql/releases/download/v1.0.0/BsonToMySQL-linux-x64.tar.gz
 $ tar -xzvf BsonToMySQL-linux-x64.tar.gz
 $ chmod 744 BsonToMySQL
-$ ./BsonToMySQL -f ./your-bson-filename -t prefixTablesName
+$ ./BsonToMySQL -f ./your-bson-file -t prefixTablesName
 ```
 
 OSX arm64:
 ```bash
 $ wget https://github.com/rodrigobrito/bson-to-sql/releases/download/v1.0.0/BsonToMySQL-osx-arm64.tgz
 $ tar -xvf BsonToMySQL-osx-arm64.tgz
-$ ./BsonToMySQL -f ./your-bson-filename -t prefixTablesName
+$ ./BsonToMySQL -f ./your-bson-file -t prefixTablesName
 ```
 
 Windows x64
 ```powershell
 $ Invoke-WebRequest -URI https://github.com/rodrigobrito/bson-to-sql/releases/download/v1.0.0/BsonToMySQL-win-x64.zip -OutFile BsonToMySQL-win-x64.zip
 $ Expand-Archive -Path BsonToMySQL-win-x64.zip -DestinationPath .\
-$ ./BsonToMySQL.exe -f ./your-bson-filename -t prefixTablesName
+$ ./BsonToMySQL.exe -f ./your-bson-filen -t prefixTablesName
 ```
 
 Given a file `simple.bson`, in the following format:
@@ -138,7 +138,7 @@ Given a file `simple.bson`, in the following format:
     "giftPackaging" : false
 }
 ```
-The output will be for the following command `./BsonToMySQL -f ./simple.bson -t simple`:
+The output will be following after running this command: `./BsonToMySQL -f ./simple.bson -t simple`:
 ```sql
 CREATE TABLE IF NOT EXISTS simple (
    _id VARCHAR(24) 
@@ -265,6 +265,12 @@ INSERT INTO simple_medias (_id, sortorder, fileid, text, mediatype, name, label,
 
 INSERT INTO simple_medias_metadata (_id, contenttype, height, width) VALUES 
 (  '623232af986a0200435765ab', 'image/jpeg', 2702, 1920);
+```
+
+Use `-f ` To specify the bson file that will be transformed into the sql script.
+Use `-t`  To specify the name prefix for the tables that will be created in the DDL.
+```bash
+./BsonToMySQL -f ./your-bson-file -t prefixTablesName
 ```
 
 ## how to build
