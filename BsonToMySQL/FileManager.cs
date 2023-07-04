@@ -14,6 +14,7 @@ namespace BsonToMySQL
                 return;
             }
 
+            Console.WriteLine($"Loading bson data from {fileName}");
             var array = ToBsonArray(fileName);
             if (array == null)
             {
@@ -22,10 +23,13 @@ namespace BsonToMySQL
                 return;
             }
 
+            Console.WriteLine("Creating document-oriented models...");
             var documents = DocumentFactory.Create(array, targetTable);
+            Console.WriteLine("Translating document-oriented models to relational models...");
             var tupleGroups = TupleFactory.Create(documents);
-            
+            Console.WriteLine("Creating DDL scripts...");
             var ddl = SqlScriptGenerator.CreateDDL(tupleGroups);
+            Console.WriteLine("Creating DML scripts...");
             var dml = SqlScriptGenerator.CreateDML(tupleGroups);
 
             var sqlBuilder = new StringBuilder();
@@ -38,8 +42,8 @@ namespace BsonToMySQL
             var path = Path.Combine(directory, $"{targetTable}.sql");
             var sql = sqlBuilder.ToString();
 
-            File.WriteAllText(path, sql);
-            Console.WriteLine($"SQL extraction from bson file {fileName} finished!"); 
+            Console.WriteLine($"Saving SQL scripts to {path}.");
+            File.WriteAllText(path, sql);      
             Console.WriteLine($"SQL file created on {path}.");
             Console.WriteLine($"Press any key to finish!");
             Console.ReadLine();

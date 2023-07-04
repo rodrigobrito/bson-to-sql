@@ -2,17 +2,19 @@
 {
     public class Program
     {
+        public const string ExpectedArgumentMessage = "Invalid argument, expected -f filename -t tableNamePrefix parameters.";
         static void Main(string[] args)
-        {
-#if DEBUG
-            args = new[] { @"C:\Users\rodri\OneDrive\Desenhos\teste\legacy_products.json", @"zz__legacy_products_v1" };
-#endif
-            if (args.Length != 2) {
-                Console.WriteLine("Invalid arguments!");
+        {           
+            if (args.Length != 4 ||
+                string.IsNullOrWhiteSpace(args[0]) || args[0].ToLower() != "-f" ||
+                string.IsNullOrWhiteSpace(args[1]) ||
+                string.IsNullOrWhiteSpace(args[2]) || args[2].ToLower() != "-t" ||
+                string.IsNullOrWhiteSpace(args[3]))
+            {
+                Console.WriteLine(ExpectedArgumentMessage);
                 return;
-            }
-            Console.WriteLine($"Processing data...");
-            FileManager.ExtractDataAndBuildSqlFile(args[0], args[1]);                  
+            }    
+            FileManager.ExtractDataAndBuildSqlFile(args[1], args[3]);                  
         }
     }
 }

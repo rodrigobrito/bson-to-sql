@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BsonToMySQL": {
+      "commandName": "Project",
+      "commandLineArgs": "-f C:\\Users\\rodri\\OneDrive\\Desenhos\\teste\\legacy_skus.json -t zz__legacy_skus_v1"
+    }
+  }
+}
