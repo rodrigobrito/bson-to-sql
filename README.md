@@ -70,7 +70,7 @@ Given a file `simple.bson`, in the following format:
             "mediaType" : "photo",
             "name" : "CAMISETA",
             "label" : "CAMISETA",
-            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-de-algodao-48-preto?id=1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b",            
+            "url" : "https://media.shop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-de-algodao-48-preto?id=1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b",            
             "metadata" : {
                 "contentType" : "image/jpeg",
                 "height" : NumberInt(2702),
@@ -125,7 +125,7 @@ Given a file `simple.bson`, in the following format:
             "mediaType" : "photo",
             "name" : "CAMISETA",
             "label" : "CAMISETA",
-            "url" : "https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-de-algodao-48-preto?id=1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b",            
+            "url" : "https://media.shop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-de-algodao-48-preto?id=1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b",            
             "metadata" : {
                 "contentType" : "image/jpeg",
                 "height" : NumberInt(2702),
@@ -228,7 +228,7 @@ INSERT INTO simple_history (_id, simple_history) VALUES
 
 
 INSERT INTO simple_medias (_id, sortorder, fileid, text, mediatype, name, label, url) VALUES 
-(  '623232af986a0200435765aa', 0, '1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b', '100000289720UC9948-CAMISETA_1.JPG', 'photo', 'CAMISETA', 'CAMISETA', 'https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-de-algodao-48-preto?id=1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b');
+(  '623232af986a0200435765aa', 0, '1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b', '100000289720UC9948-CAMISETA_1.JPG', 'photo', 'CAMISETA', 'CAMISETA', 'https://media.shop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-de-algodao-48-preto?id=1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b');
 
 
 INSERT INTO simple_medias_metadata (_id, contenttype, height, width) VALUES 
@@ -261,7 +261,7 @@ INSERT INTO simple_history (_id, simple_history) VALUES
 
 
 INSERT INTO simple_medias (_id, sortorder, fileid, text, mediatype, name, label, url) VALUES 
-(  '623232af986a0200435765ab', 0, '1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b', '100000289720UC9948-CAMISETA_1.JPG', 'photo', 'CAMISETA', 'CAMISETA', 'https://media.ifcshop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-de-algodao-48-preto?id=1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b');
+(  '623232af986a0200435765ab', 0, '1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b', '100000289720UC9948-CAMISETA_1.JPG', 'photo', 'CAMISETA', 'CAMISETA', 'https://media.shop.com.br/contexts/catalog/company/masculino/roupas/camisetas-e-polos/camiseta-borgonuovo-de-algodao-48-preto?id=1ebda2f8-85a6-4f39-ad3f-29b5e0979f0b');
 
 
 INSERT INTO simple_medias_metadata (_id, contenttype, height, width) VALUES 
