@@ -138,7 +138,7 @@ Given a file `simple.bson`, in the following format:
     "giftPackaging" : false
 }
 ```
-The output will be following after running this command: `./BsonToMySQL -f ./simple.bson -t simple`:
+## The output will be following after running: `./BsonToMySQL -f ./simple.bson -t simple`:
 ```sql
 CREATE TABLE IF NOT EXISTS simple (
    _id VARCHAR(24) 
