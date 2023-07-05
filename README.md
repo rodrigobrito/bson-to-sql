@@ -268,6 +268,7 @@ INSERT INTO simple_medias_metadata (_id, contenttype, height, width) VALUES
 ```
 
 Use `-f ` To specify the bson file that will be transformed into the sql script.
+
 Use `-t`  To specify the name prefix for the tables that will be created in the DDL.
 ```bash
 ./BsonToMySQL -f ./your-bson-file -t prefixTablesName
